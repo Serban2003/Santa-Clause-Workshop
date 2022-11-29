@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Contact Santa</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="images/favicon.png">
+    </head>
+
+</html>
+
+<body>
+
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#workshop">Santa's Workshop</a></li>
+        <li><a class="active" href="contact.html">Write a letter to Santa!</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      
+
+    <div class="main_cont">
+        <div class="form">
+            <form>
+                <h1>Contact Santa!</h1>
+                <label for="firstname"> Firstname<br>
+                    <input type="text" name="firstname" id="firstname">
+                </label>
+                <br>
+                <label for="lastname"> Lastname<br>
+                    <input type="text" name="lastname" id="lastname">
+                </label>
+                <br>
+                <label for="email"> Email<br>
+                    <input type="email" name="email" id="email">
+                </label>
+                <br>
+                <label for="message">Your message<br>
+                    <textarea name="message" id="message"></textarea>
+                </label>
+                <input type="button" onclick="sendLetter()" value="Send letter">
+            </form>
+        </div>
+    </div>
+    
+
+</body>
+
+<script src="script.js"></script>
