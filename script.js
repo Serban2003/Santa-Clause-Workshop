@@ -46,14 +46,18 @@ function sendLetter(){
     } 
 }
 
-var line = 1;
+var line = 0;
+var line_pr = 0;
 var toggled_mute = 1;
 var toggled_snow = 1;
+var pr_clicked = 0;
 
 window.onload = function (){
     line = 0;
+    line_pr = 0;
     toggled_mute = 1;
     toggled_snow = 1;
+    pr_clicked = 0;
 }
 
 function startTalk(){
@@ -117,7 +121,7 @@ function startTalkWork(){
         let bubble = document.createElement("div");
         bubble.id = "bubble1";
         bubble.className = "bubble_work";
-        bubble.innerHTML = "HoHoHo!<br>So this is<br>my workshop!";
+        bubble.innerHTML = "HoHoHo!<br>This is<br>my workshop!";
         bubble.style.top = "550px";
         bubble.style.marginLeft = "80px";
 
@@ -153,6 +157,132 @@ function startTalkWork(){
     else if(line == 4){
         window.location.replace("contact.html");
     }
+}
+
+function startPresents(){
+    line_pr++;
+
+    let page = document.getElementById("main_content_workshop");
+    let audio = document.getElementById("hohoho");
+
+    if(line_pr == 1){
+        let bubble = document.createElement("div");
+        bubble.id = "bubblePr1";
+        bubble.className = "bubble_work";
+        bubble.innerHTML = "HoHoHo!<br>So you want to<br>open some presents?";
+        bubble.style.top = "550px";
+        bubble.style.marginLeft = "-10px";
+
+        page.appendChild(bubble);
+        audio.play();
+    }
+    else if(line_pr == 2){
+        page.removeChild(document.getElementById("bubblePr1"));
+        let bubble = document.createElement("div");
+        bubble.id = "bubblePr2";
+        bubble.className = "bubble_work";
+        bubble.innerHTML = "I don't think<br>it's a good ideea...<br>It's not Christmas yet!";
+        bubble.style.top = "550px";
+        bubble.style.marginLeft = "-55px";
+
+        page.appendChild(bubble);
+        audio.play();
+    }
+    else if(line_pr == 3){
+        page.removeChild(document.getElementById("bubblePr2"));
+        let bubble = document.createElement("div");
+        bubble.id = "bubblePr3";
+        bubble.className = "bubble_work";
+        bubble.innerHTML = "Hey, stop!<br>You are on the<br>naughty list now!";
+        bubble.style.top = "550px";
+        bubble.style.marginLeft = "15px";
+
+        page.appendChild(bubble);
+        audio.play();
+    }
+    else{
+        if(document.getElementById("bubblePr3") != null)
+            page.removeChild(document.getElementById("bubblePr3"));
+
+        let audio = document.getElementById("wow");
+
+        let overlay = document.createElement("div");
+        overlay.id = "present_overlay";
+        overlay.className = "back_submit";
+
+        let present = document.createElement("img");
+        present.src = "images/present.png";
+        present.className = "present";
+        present.addEventListener("click", function(){
+        pr_clicked++;
+
+            if(pr_clicked >= 5){
+                present.removeEventListener("click", this);
+                let explosion = document.createElement("img");
+                explosion.src = "images/explosion.gif";
+                explosion.className = "explosion";
+                overlay.appendChild(explosion);
+                
+
+                let open_present = document.createElement("img");
+                open_present.src = "images/present_open.png";
+                open_present.className = "open_present";
+                overlay.appendChild(open_present);
+                
+                setTimeout(function(){
+                    overlay.removeChild(explosion);
+                    overlay.removeChild(present);
+
+                    let toy = document.createElement("img");
+                    toy.className = "toy";
+
+                    var number = getRandom(1, 4);
+                    var path = "";
+                        console.log(number);
+                    switch(number){
+                        case 1:{
+                            path = "images/toy1.gif"
+                            break;
+                        }
+                        case 2:{
+                            path = "images/toy2.png"
+                            break;
+                        }
+                        case 3:{
+                            path = "images/toy3.png"
+                            break;
+                        }
+                        default:{
+                            path = "images/toy4.png"
+                            break;
+                        }
+                    }
+                    toy.src = path;
+                    toy.classList.add("slide_in");
+                    
+                    overlay.appendChild(toy);
+                    audio.play();
+                    setTimeout(function(){
+                        document.body.removeChild(overlay);
+                        pr_clicked = 0;
+                    }, 7000);
+                }, 700);
+
+            }
+            else{
+                present.classList.add("shake_animation");
+                setTimeout(function(){
+                    present.classList.remove("shake_animation");
+                }, 1000);
+            }
+        });
+        overlay.appendChild(present);
+        document.body.appendChild(overlay);
+    }
+}
+
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function toggleMute(){
