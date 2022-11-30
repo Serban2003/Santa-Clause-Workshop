@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Workshop</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="images/favicon.png">
+    </head>
+
+</html>
+
+<body class="workshop">
+    <div class="overlay" id="overlay">
+        <audio src="HoHoHo.mp3" id="hohoho"></audio>
+        <audio src="JINGLE BELLS.mp3" id="jingle"></audio>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a  class="active" href="workshop.html">Santa's Workshop</a></li>
+            <li><a href="contact.html">Write a letter to Santa!</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <ul class="settings">
+            <li onclick="toggleMute()" title="Toggle sound on/off"><img src="images/sound_icon.png" class="not_active" id="mute"></li>
+            <li onclick="toggleSnow()" title="Toggle snow on/off"><img src="images/snow_icon.png" id="snow"></li>
+        </ul>
+    </div>
+    <div class="main_content_workshop" id="main_content_workshop">
+            <img src="images/house_tint_worksho.png" width="1300px" class="house">
+            <img src="images/santa.png" width="150px" class="santa_work" onclick="startTalkWork()">
+            <div class="bubble_work" id="bubble0" style="top: 600px;">Click me!</div>
+    </div>
+    
+    
+</body>
+
+<script src="script.js"></script>

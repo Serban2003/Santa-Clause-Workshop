@@ -31,14 +31,21 @@ h1{
     top: 25px;
 }
 
-.santa_house{
-    
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/snow-falling-transparent-gif-6.gif");
+    z-index: 2;
 }
 
-.santa{
+.santa, .santa_work{
     position: relative;
     top: 50px;
     cursor: pointer;
+    z-index: 4;
 }
 
 .bubble{
@@ -51,6 +58,7 @@ h1{
     background-position: center top;
     background-size: 100% 100%;
     display: inline-block;
+    z-index: 4;
 }
 
 .menu {
@@ -59,6 +67,7 @@ h1{
     padding: 0;
     width: 100%;
     overflow: auto;
+    z-index: 4;
 }
   
 .menu li{
@@ -99,6 +108,46 @@ h1{
 
 .menu li a.active:hover{
     background-color: rgb(1, 156, 99);
+}
+
+.settings{
+    width: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.settings li{
+    display: inline-block;
+    border-style:solid;
+    border-width: 16px 16px 16px 16px;
+    -moz-border-image: url("images/test.png") 50 repeat;
+    -webkit-border-image: url("images/test.png") 50 repeat;
+    -o-border-image: url("images/test.png") 50 repeat;
+    border-image: url("images/test.png") 50 fill repeat;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.settings img{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    background-color: var(--ch_green);
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.settings img:hover{
+    background-color: var(--ch_dark_green);
+}
+
+.settings img.not_active{
+    background-color: var(--ch_red);
+}
+
+.settings img.not_active:hover{
+    background-color: var(--ch_dark_red);
 }
 
 /* Contact page */
@@ -187,6 +236,7 @@ form input[type=button]:hover{
     width: 100%;
     background-color: rgba(0, 0, 0, 0.503);
     transition: all 0.2s;
+    z-index: 4;
 }
 
 .submit_panel{
@@ -200,7 +250,7 @@ form input[type=button]:hover{
     left: 50%;
     padding: 5px 16px 26px 16px;
     transform: translate(-200px);
-    z-index: 4;
+    z-index: 5;
     border-radius: 20px;
 }
 
@@ -208,4 +258,47 @@ form input[type=button]:hover{
     font-size: 30px;
     text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, 1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
     font-family: Arial;
+}
+
+/* Workshop page */
+.workshop{
+    background-image: url("images/background.png");
+    background-repeat: repeat-x;
+    background-color: #c9c8d8; background-position: 0px -1100px;
+    background-size: 2500px auto;
+    margin: 0;
+    text-align: center;
+    color: var(--ch_white);
+}
+
+.main_content_workshop{
+    position: relative;
+}
+
+.santa_work{
+    position: absolute;
+    top: 570px;
+    left: 50%;
+    margin-left: 250px;
+}
+
+.bubble_work{
+    position: absolute;
+    font-family: Pixel;
+    color: black;
+    font-size: 20px;
+    padding: 20px;
+    left: 50%;
+    margin-left: 100px;
+    background-image: url("images/buuble.png");
+    background-position: center top;
+    background-size: 100% 100%;
+    display: inline-block;
+    z-index: 4;
+}
+
+.house{
+    position: relative;
+    top: -300px;
+    margin-bottom: -300px;
 }

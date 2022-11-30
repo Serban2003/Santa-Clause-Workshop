@@ -47,8 +47,13 @@ function sendLetter(){
 }
 
 var line = 1;
+var toggled_mute = 1;
+var toggled_snow = 1;
+
 window.onload = function (){
     line = 0;
+    toggled_mute = 1;
+    toggled_snow = 1;
 }
 
 function startTalk(){
@@ -56,6 +61,7 @@ function startTalk(){
     let page = document.getElementById("main_content");
 
     if(line == 1){
+        page.removeChild(document.getElementById("bubble0"));
         let audio = document.getElementById("hohoho");
         let bubble = document.createElement("div");
         bubble.id = "bubble1";
@@ -71,11 +77,112 @@ function startTalk(){
         let audio = document.getElementById("hohoho");
         let bubble = document.createElement("div");
         
+        bubble.id = "bubble2";
         bubble.className = "bubble";
-        bubble.innerHTML = "Hmm...<br>So you want to visit my house?";
+        bubble.innerHTML = "Hmm...<br>So you want to<br>visit my workshop?";
         bubble.style.top = "500px";
     
         page.appendChild(bubble);
         audio.play();
     }
+    else if(line == 3){
+        page.removeChild(document.getElementById("bubble2"));
+        let audio = document.getElementById("hohoho");
+        let bubble = document.createElement("div");
+        
+        bubble.id = "bubble3";
+        bubble.className = "bubble";
+        bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)";
+        bubble.style.top = "500px";
+    
+        page.appendChild(bubble);
+        audio.play();
+
+        setTimeout(function(){
+            window.location.replace("workshop.html");
+        }, 5000);
+    }
+    else if(line == 4){
+        window.location.replace("workshop.html");
+    }
+}
+
+function startTalkWork(){
+    line++;
+    let page = document.getElementById("main_content_workshop");
+
+    if(line == 1){
+        page.removeChild(document.getElementById("bubble0"));
+        let audio = document.getElementById("hohoho");
+        let bubble = document.createElement("div");
+        bubble.id = "bubble1";
+        bubble.className = "bubble_work";
+        bubble.innerHTML = "HoHoHo!<br>So this is<br>my workshop!";
+        bubble.style.top = "550px";
+        bubble.style.marginLeft = "80px";
+
+        page.appendChild(bubble);
+        audio.play();
+    }
+    else if(line == 2){
+        page.removeChild(document.getElementById("bubble1"));
+        let audio = document.getElementById("hohoho");
+        let bubble = document.createElement("div");
+        
+        bubble.id = "bubble2";
+        bubble.className = "bubble_work";
+        bubble.innerHTML = "It ain't much,<br>but it's honest work";
+        bubble.style.top = "580px";
+        bubble.style.marginLeft = "-10px";
+        page.appendChild(bubble);
+        audio.play();
+    }
+    else if(line == 3){
+        page.removeChild(document.getElementById("bubble2"));
+        let audio = document.getElementById("hohoho");
+        let bubble = document.createElement("div");
+        
+        bubble.id = "bubble3";
+        bubble.className = "bubble_work";
+        bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!";
+        bubble.style.top = "500px";
+        bubble.style.marginLeft = "-5px";
+        page.appendChild(bubble);
+        audio.play();
+    }
+    else if(line == 4){
+        window.location.replace("contact.html");
+    }
+}
+
+function toggleMute(){
+    let audio = document.getElementById("jingle");
+    let button = document.getElementById("mute");
+    if(toggled_mute == 1){
+        button.classList.remove("not_active");
+        audio.loop = "true";
+        audio.play();
+        toggled_mute = 0;
+    }
+    else if(toggled_mute == 0){
+        button.classList.add("not_active");
+        audio.pause();
+        toggled_mute = 1;
+    }
+}
+
+function toggleSnow(){
+    let snow_layer = document.getElementById("overlay");
+    let button = document.getElementById("snow");
+    if(toggled_snow == 1){
+        snow_layer.style.background = "none";
+        button.classList.add("not_active");
+        toggled_snow = 0;
+    }
+    else if(toggled_snow == 0){
+        snow_layer.style.backgroundImage = "url(images/snow-falling-transparent-gif-6.gif)";
+        button.classList.remove("not_active");
+        toggled_snow = 1;
+    }
+    
 }
