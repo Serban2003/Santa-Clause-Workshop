@@ -8,28 +8,35 @@
 </html>
 
 <body>
-    <div class="overlay" id="overlay">
+    <div class="overlay" id="overlay"> </div>
         <audio src="sound/HoHoHo.mp3" id="hohoho"></audio>
         <audio src="sound/JINGLE BELLS.mp3" id="jingle"></audio>
         <audio src="sound/deer_sound.mp3" id="deer_sound"></audio>
         <ul class="menu">
             <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="#main_content2">Santa's Elfs</a></li>
             <li><a href="workshop.html">Santa's Workshop</a></li>
             <li><a href="contact.html">Write a letter to Santa!</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
         <ul class="settings">
             <li onclick="toggleMute()" title="Toggle sound on/off"><img src="images/sound_icon.png" class="not_active" id="mute"></li>
             <li onclick="toggleSnow()" title="Toggle snow on/off"><img src="images/snow_icon.png" id="snow"></li>
         </ul>
-        <img src="images/merry_christmas.png" width="600px" class="big_title">
-    </div>
+        
     
+    <img src="images/merry_christmas.png" width="600px" class="big_title">
     <div class="main_content" id="main_content">
         <img src="images/rudolf.png" width="250px" class="rudolf" onclick="startRudolf()">
         <img src="images/house_tint.png" width="550px" class="santa_house">
         <img src="images/santa.png" width="150px" class="santa" onclick="startTalk()">
         <div class="bubble" id="bubble0" style="top: 530px;">Click me!</div>
+    </div>
+    <div class="main_content" id="main_content2" style="margin-top: 300px; margin-bottom: 100px;">
+        <img src="images/elf.png" width="100px" class="elf" onclick="startElf()">
+        <img src="images/elf2.png" width="100px" class="elf" style="top: -100px; margin-left: 50px; margin-right: 50px;" onclick="startElf2()">
+        <img src="images/elf3.png" width="140px" class="elf" onclick="startElf3()">
+        <img src="images/lake.png" width="1000px" class="lake">
     </div>
     
 </body>
