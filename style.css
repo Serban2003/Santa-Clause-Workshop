@@ -26,9 +26,15 @@ h1{
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
+.big_title{
+    position: absolute;
+    top: 120px;
+    left: calc(50% - 300px);
+}
+
 .main_content{
     position: relative;
-    top: 25px;
+    top: 35px;
 }
 
 .overlay{
