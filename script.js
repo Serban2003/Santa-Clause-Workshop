@@ -111,12 +111,21 @@ function startTalk(){
     }
 }
 
+function startRudolf(){
+    let audio = document.getElementById("deer_sound");
+    audio.play();
+}
+
 function startTalkWork(){
     line++;
     let page = document.getElementById("main_content_workshop");
 
+    if(document.getElementById("bubblePr1") != null) page.removeChild(document.getElementById("bubblePr1"));
+    if(document.getElementById("bubblePr2") != null) page.removeChild(document.getElementById("bubblePr2"));
+    if(document.getElementById("bubblePr3") != null) page.removeChild(document.getElementById("bubblePr3"));
+
     if(line == 1){
-        page.removeChild(document.getElementById("bubble0"));
+        if(document.getElementById("bubble0") != null) page.removeChild(document.getElementById("bubble0"));
         let audio = document.getElementById("hohoho");
         let bubble = document.createElement("div");
         bubble.id = "bubble1";
@@ -129,7 +138,7 @@ function startTalkWork(){
         audio.play();
     }
     else if(line == 2){
-        page.removeChild(document.getElementById("bubble1"));
+        if(document.getElementById("bubble1") != null) page.removeChild(document.getElementById("bubble1"));
         let audio = document.getElementById("hohoho");
         let bubble = document.createElement("div");
         
@@ -142,7 +151,7 @@ function startTalkWork(){
         audio.play();
     }
     else if(line == 3){
-        page.removeChild(document.getElementById("bubble2"));
+        if(document.getElementById("bubble2") != null) page.removeChild(document.getElementById("bubble2"));
         let audio = document.getElementById("hohoho");
         let bubble = document.createElement("div");
         
@@ -165,6 +174,11 @@ function startPresents(){
     let page = document.getElementById("main_content_workshop");
     let audio = document.getElementById("hohoho");
 
+    if(document.getElementById("bubble0") != null) page.removeChild(document.getElementById("bubble0"));
+    if(document.getElementById("bubble1") != null) page.removeChild(document.getElementById("bubble1"));
+    if(document.getElementById("bubble2") != null) page.removeChild(document.getElementById("bubble2"));
+    if(document.getElementById("bubble3") != null) page.removeChild(document.getElementById("bubble3"));
+
     if(line_pr == 1){
         let bubble = document.createElement("div");
         bubble.id = "bubblePr1";
@@ -177,7 +191,7 @@ function startPresents(){
         audio.play();
     }
     else if(line_pr == 2){
-        page.removeChild(document.getElementById("bubblePr1"));
+        if(document.getElementById("bubblePr1") != null) page.removeChild(document.getElementById("bubblePr1"));
         let bubble = document.createElement("div");
         bubble.id = "bubblePr2";
         bubble.className = "bubble_work";
@@ -189,7 +203,7 @@ function startPresents(){
         audio.play();
     }
     else if(line_pr == 3){
-        page.removeChild(document.getElementById("bubblePr2"));
+        if(document.getElementById("bubblePr2") != null) page.removeChild(document.getElementById("bubblePr2"));
         let bubble = document.createElement("div");
         bubble.id = "bubblePr3";
         bubble.className = "bubble_work";
@@ -201,10 +215,10 @@ function startPresents(){
         audio.play();
     }
     else{
-        if(document.getElementById("bubblePr3") != null)
-            page.removeChild(document.getElementById("bubblePr3"));
+        if(document.getElementById("bubblePr3") != null) page.removeChild(document.getElementById("bubblePr3"));
 
         let audio = document.getElementById("wow");
+        let audio2 = document.getElementById("tnt");
 
         let overlay = document.createElement("div");
         overlay.id = "present_overlay";
@@ -217,13 +231,13 @@ function startPresents(){
         pr_clicked++;
 
             if(pr_clicked >= 5){
+                audio2.play();
                 present.removeEventListener("click", this);
                 let explosion = document.createElement("img");
                 explosion.src = "images/explosion.gif";
                 explosion.className = "explosion";
                 overlay.appendChild(explosion);
                 
-
                 let open_present = document.createElement("img");
                 open_present.src = "images/present_open.png";
                 open_present.className = "open_present";
@@ -238,7 +252,7 @@ function startPresents(){
 
                     var number = getRandom(1, 4);
                     var path = "";
-                        console.log(number);
+     
                     switch(number){
                         case 1:{
                             path = "images/toy1.gif"
