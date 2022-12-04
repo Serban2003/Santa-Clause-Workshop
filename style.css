@@ -17,6 +17,7 @@ body{
     margin: 0;
     text-align: center;
     color: var(--ch_white);
+    user-select: none;
 }
 
 h1{
@@ -31,6 +32,14 @@ h1{
     top: 120px;
     left: calc(50% - 300px);
     z-index: 1;
+}
+
+p{
+    font-family: Christmas, sans-serif;
+    color: white;
+    font-size: 50px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000;
+    padding: 0px 150px;
 }
 
 .main_content{
@@ -101,7 +110,7 @@ h1{
     font-size: 40px;
     margin-top: 25px;
     margin-right: 20px;
-    border-style:solid;
+    border-style: solid;
     border-width: 16px 16px 16px 16px;
     -moz-border-image: url("images/test.png") 50 repeat;
     -webkit-border-image: url("images/test.png") 50 repeat;
@@ -400,3 +409,5 @@ form input[type=button]:hover{
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+
+  /* About page */
