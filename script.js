@@ -68,51 +68,56 @@ window.onload = function (){
 
 function startTalk(){
     line++;
-    let page = document.getElementById("main_content");
+    let audio = document.getElementById("hohoho");
+    let bubble = document.getElementById("bubble0");
+    bubble.className = "bubble";
+    bubble.innerHTML = "";
 
     if(line == 1){
-        page.removeChild(document.getElementById("bubble0"));
-        let audio = document.getElementById("hohoho");
-        let bubble = document.createElement("div");
-        bubble.id = "bubble1";
-        bubble.className = "bubble";
-        bubble.innerHTML = "HoHoHo!<br>What are you doing here?<br>Are you lost?";
+        bubble.style.display = "inline";
         bubble.style.top = "500px";
-    
-        page.appendChild(bubble);
+        bubble.innerHTML = "HoHoHo!<br>What are you doing here?<br>Are you lost?";
+
         audio.play();
     }
     else if(line == 2){
-        page.removeChild(document.getElementById("bubble1"));
-        let audio = document.getElementById("hohoho");
-        let bubble = document.createElement("div");
-        
-        bubble.id = "bubble2";
-        bubble.className = "bubble";
-        bubble.innerHTML = "Hmm...<br>So you want to<br>visit my workshop?";
+        bubble.style.display = "inline";
         bubble.style.top = "500px";
-    
-        page.appendChild(bubble);
+        bubble.innerHTML = "This is my house<br>Do you like it?";
+
         audio.play();
     }
     else if(line == 3){
-        page.removeChild(document.getElementById("bubble2"));
-        let audio = document.getElementById("hohoho");
-        let bubble = document.createElement("div");
-        
-        bubble.id = "bubble3";
-        bubble.className = "bubble";
-        bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)";
+        bubble.style.display = "inline";
         bubble.style.top = "500px";
-    
-        page.appendChild(bubble);
-        audio.play();
+        bubble.innerHTML = "Hmm...<br>So you want to<br>visit my workshop?";
 
-        setTimeout(function(){
-            window.location.replace("workshop.html");
-        }, 5000);
+        audio.play();
     }
     else if(line == 4){
+        bubble.style.display = "inline";
+        bubble.style.top = "400px";
+        bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)<br>5...";
+
+        audio.play();
+        
+        setTimeout(function(){
+            bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)<br>4...";
+            setTimeout(function(){
+                bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)<br>3...";
+                setTimeout(function(){
+                    bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)<br>2...";
+                    setTimeout(function(){
+                        bubble.innerHTML = "Ok!<br>Let's go!<br>HoHoHo!<br>(Click me again if<br>not redirected)<br>1...";
+                        setTimeout(function(){
+                            window.location.replace("workshop.html");
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    }
+    else if(line == 5){
         window.location.replace("workshop.html");
     }
 }
@@ -232,50 +237,50 @@ function startElf3(){
 
 function startTalkWork(){
     line++;
-    let page = document.getElementById("main_content_workshop");
-
-    if(document.getElementById("bubblePr1") != null) page.removeChild(document.getElementById("bubblePr1"));
-    if(document.getElementById("bubblePr2") != null) page.removeChild(document.getElementById("bubblePr2"));
-    if(document.getElementById("bubblePr3") != null) page.removeChild(document.getElementById("bubblePr3"));
-
+    
+    let audio = document.getElementById("hohoho");
+    let bubble = document.getElementById("bubble0");
+    bubble.className = "bubble_work";
+    bubble.style.display = "inline";
+    bubble.innerHTML = "";
+    
     if(line == 1){
-        if(document.getElementById("bubble0") != null) page.removeChild(document.getElementById("bubble0"));
-        let audio = document.getElementById("hohoho");
-        let bubble = document.createElement("div");
-        bubble.id = "bubble1";
-        bubble.className = "bubble_work";
         bubble.innerHTML = "HoHoHo!<br>This is<br>my workshop!";
         bubble.style.top = "550px";
         bubble.style.marginLeft = "80px";
 
-        page.appendChild(bubble);
         audio.play();
     }
     else if(line == 2){
-        if(document.getElementById("bubble1") != null) page.removeChild(document.getElementById("bubble1"));
-        let audio = document.getElementById("hohoho");
-        let bubble = document.createElement("div");
-        
-        bubble.id = "bubble2";
-        bubble.className = "bubble_work";
+        bubble.innerHTML = "HoHoHo!<br>This is<br>my workshop!";
         bubble.innerHTML = "It ain't much,<br>but it's honest work";
         bubble.style.top = "580px";
         bubble.style.marginLeft = "-10px";
-        page.appendChild(bubble);
+
         audio.play();
     }
     else if(line == 3){
-        if(document.getElementById("bubble2") != null) page.removeChild(document.getElementById("bubble2"));
-        let audio = document.getElementById("hohoho");
-        let bubble = document.createElement("div");
-        
-        bubble.id = "bubble3";
-        bubble.className = "bubble_work";
-        bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!";
+        bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!<br>(Click me again if<br>not redirected)<br>5...";
         bubble.style.top = "500px";
         bubble.style.marginLeft = "-5px";
-        page.appendChild(bubble);
+
         audio.play();
+
+        setTimeout(function(){
+            bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!<br>(Click me again if<br>not redirected)<br>4...";
+            setTimeout(function(){
+                bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!<br>(Click me again if<br>not redirected)<br>3...";
+                setTimeout(function(){
+                    bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!<br>(Click me again if<br>not redirected)<br>2...";
+                    setTimeout(function(){
+                        bubble.innerHTML = "Hey!<br>You should write me<br>a letter to know<br>what to give you<br>for Christmas!<br>(Click me again if<br>not redirected)<br>1...";
+                        setTimeout(function(){
+                            window.location.replace("contact.html");
+                        }, 1000);
+                    }, 1000);
+                }, 1000);
+            }, 1000);
+        }, 1000);
     }
     else if(line == 4){
         window.location.replace("contact.html");
@@ -285,51 +290,35 @@ function startTalkWork(){
 function startPresents(){
     line_pr++;
 
-    let page = document.getElementById("main_content_workshop");
     let audio = document.getElementById("hohoho");
-
-    if(document.getElementById("bubble0") != null) page.removeChild(document.getElementById("bubble0"));
-    if(document.getElementById("bubble1") != null) page.removeChild(document.getElementById("bubble1"));
-    if(document.getElementById("bubble2") != null) page.removeChild(document.getElementById("bubble2"));
-    if(document.getElementById("bubble3") != null) page.removeChild(document.getElementById("bubble3"));
+    let bubble = document.getElementById("bubble0");
+    bubble.className = "bubble_work";
+    bubble.style.display = "inline";
+    bubble.innerHTML = "";
 
     if(line_pr == 1){
-        let bubble = document.createElement("div");
-        bubble.id = "bubblePr1";
-        bubble.className = "bubble_work";
         bubble.innerHTML = "HoHoHo!<br>So you want to<br>open some presents?";
         bubble.style.top = "550px";
         bubble.style.marginLeft = "-10px";
 
-        page.appendChild(bubble);
         audio.play();
     }
     else if(line_pr == 2){
-        if(document.getElementById("bubblePr1") != null) page.removeChild(document.getElementById("bubblePr1"));
-        let bubble = document.createElement("div");
-        bubble.id = "bubblePr2";
-        bubble.className = "bubble_work";
         bubble.innerHTML = "I don't think<br>it's a good ideea...<br>It's not Christmas yet!";
         bubble.style.top = "550px";
         bubble.style.marginLeft = "-55px";
 
-        page.appendChild(bubble);
         audio.play();
     }
     else if(line_pr == 3){
-        if(document.getElementById("bubblePr2") != null) page.removeChild(document.getElementById("bubblePr2"));
-        let bubble = document.createElement("div");
-        bubble.id = "bubblePr3";
-        bubble.className = "bubble_work";
         bubble.innerHTML = "Hey, stop!<br>You are on the<br>naughty list now!";
         bubble.style.top = "550px";
         bubble.style.marginLeft = "15px";
 
-        page.appendChild(bubble);
         audio.play();
     }
     else{
-        if(document.getElementById("bubblePr3") != null) page.removeChild(document.getElementById("bubblePr3"));
+        bubble.style.display = "none";
 
         let audio = document.getElementById("wow");
         let audio2 = document.getElementById("tnt");
