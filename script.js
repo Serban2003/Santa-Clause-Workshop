@@ -48,6 +48,9 @@ function sendLetter(){
 
 var line = 0;
 var line_pr = 0;
+var line_elf1 = 0;
+var line_elf2 = 0;
+var line_elf3 = 0;
 var toggled_mute = 1;
 var toggled_snow = 1;
 var pr_clicked = 0;
@@ -55,6 +58,9 @@ var pr_clicked = 0;
 window.onload = function (){
     line = 0;
     line_pr = 0;
+    line_elf1 = 0;
+    line_elf2 = 0;
+    line_elf3 = 0;
     toggled_mute = 1;
     toggled_snow = 1;
     pr_clicked = 0;
@@ -114,6 +120,114 @@ function startTalk(){
 function startRudolf(){
     let audio = document.getElementById("deer_sound");
     audio.play();
+}
+
+function startElf(){
+    line_elf1++;
+    let audio = document.getElementById("elf1");
+
+    let bubble = document.getElementById("bubbleElf0");
+    bubble.className = "bubble_elf";
+    bubble.style.display = "inline";
+    bubble.innerHTML = "";
+
+    if(line_elf1 == 1){
+        bubble.style.marginLeft = "-350px";
+        bubble.style.top = "120px";
+        bubble.innerHTML = "Hey!<br>We are some of<br>Santa's Elves!";
+        audio.play();
+    }
+    else if(line_elf1 == 2){
+        bubble.style.marginLeft = "-350px";
+        bubble.style.top = "70px";
+        bubble.innerHTML = "I'm Mike!<br>And this is<br>where we train<br>for our skating<br>competition!";
+        audio.play();
+    }
+    else if(line_elf1 == 3){
+        bubble.style.marginLeft = "-350px";
+        bubble.style.top = "70px";
+        bubble.innerHTML = "All the elves<br>from every<br>planet compete<br>to win 'The<br>Golden Elf'!";
+        audio.play();
+    }
+    else if(line_elf1 == 4){
+        bubble.style.marginLeft = "-335px";
+        bubble.style.top = "110px";
+        bubble.innerHTML = "So please<br>let us train<br>in peace!";
+        audio.play();
+    }
+    else{
+        bubble.style.display = "none";
+    }
+}
+
+function startElf2(){
+    line_elf2++;
+    let audio = document.getElementById("elf2");
+
+    let bubble = document.getElementById("bubbleElf0");
+    bubble.className = "bubble_elf";
+    bubble.style.display = "inline";
+    bubble.innerHTML = "";
+
+    if(line_elf2 == 1){
+        bubble.style.marginLeft = "-330px";
+        bubble.style.top = "140px";
+        bubble.innerHTML = "Hi!<br>I'm Zababe!";
+        audio.play();
+    }
+    else if(line_elf2 == 2){
+        bubble.style.marginLeft = "-350px";
+        bubble.style.top = "140px";
+        bubble.innerHTML = "Don't let Mike<br>disturb you!";
+        audio.play();
+    }
+    else if(line_elf2 == 3){
+        bubble.style.marginLeft = "-325px";
+        bubble.style.top = "100px";
+        bubble.innerHTML = "That's who<br>he is...<br>But we<br>love him";
+        audio.play();
+    }
+    else if(line_elf2 == 4){
+        bubble.style.marginLeft = "-335px";
+        bubble.style.top = "120px";
+        bubble.innerHTML = "Thank you<br>for stopping<br>by!";
+        audio.play();
+    }
+    else{
+        bubble.style.display = "none";
+    }
+}
+
+function startElf3(){
+    line_elf3++;
+    let audio = document.getElementById("elf3");
+
+    let bubble = document.getElementById("bubbleElf0");
+    bubble.className = "bubble_elf";
+    bubble.style.display = "inline";
+    bubble.innerHTML = "";
+
+    if(line_elf3 == 1){
+        bubble.style.marginLeft = "-340px";
+        bubble.style.top = "140px";
+        bubble.innerHTML = "Hey!<br>I'm Gilbert!";
+        audio.play();
+    }
+    else if(line_elf3 == 2){
+        bubble.style.marginLeft = "-340px";
+        bubble.style.top = "140px";
+        bubble.innerHTML = "I really<br>like globes!";
+        audio.play();
+    }
+    else if(line_elf3 == 3){
+        bubble.style.marginLeft = "-310px";
+        bubble.style.top = "150px";
+        bubble.innerHTML = "See ya!";
+        audio.play();
+    }
+    else{
+        bubble.style.display = "none";
+    }
 }
 
 function startTalkWork(){
